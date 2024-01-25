@@ -10,12 +10,12 @@ public class TestCalculatorService {
 
 	@Test
 	public void testAdd() {
-		assertEquals( CalculatorService.add(5, 5));
+		assertEquals(10, CalculatorService.add(5, 5));
 	}
 
 	@Test
 	public void testNull() {
-		assertEquals(0, CalculatorService.add(0,0))
+		assertEquals(0, CalculatorService.add(0,0));
 	}
 
 }
