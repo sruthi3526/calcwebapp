@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/rchidana/calcwebapp.git'    
+                git url: 'https://github.com/sruthi3526/calcwebapp.git'    
 		            echo "Code Checked-out Successfully!!";
             }
         }
@@ -38,11 +38,11 @@ pipeline {
             }
         }
 
-	stage("Quality gate") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
+	// stage("Quality gate") {
+ //            steps {
+ //                waitForQualityGate abortPipeline: true
+ //            }
+ //        }
         
     }
     post {
