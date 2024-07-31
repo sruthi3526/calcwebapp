@@ -1,0 +1,31 @@
+name: CI
+
+on:
+   pull_request_target:
+    types: [closed]
+    branches:
+      - test
+jobs:
+  run-python-script:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest      
+    environment: dev
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - name: Install requests packages
+        run: pip install requests
+        
+      - name: Run Python script
+        run: python newcs.py
+        env:
+         PYTHON_INPUT_URL: ${{vars.URL }}
+         PYTHON_INPUT_Username: ${{ vars.Username }}
+         PYTHON_INPUT_Password: ${{ secrets.Password }}
+# url: dev/setup/api/v1/admin/products?limit=100&productTypeByName_like=Package
